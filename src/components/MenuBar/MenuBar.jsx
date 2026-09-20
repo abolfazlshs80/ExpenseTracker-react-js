@@ -34,12 +34,12 @@ const MenuBar = () => {
         <li className="mt-5">
           <MenuItems icon={profileIcon} title={"Profile"} />
         </li>
-        <li>
+        {/* <li>
           <MenuItems icon={signInIcon} title={"Sign In"} />
         </li>
         <li>
           <MenuItems icon={signUpIcon} title={"Sign Up"} />
-        </li>
+        </li> */}
       </ul>
     </div>
   );
