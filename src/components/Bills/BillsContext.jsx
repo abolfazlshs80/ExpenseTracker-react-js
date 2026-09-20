@@ -19,11 +19,27 @@ const BillProvider = ({ children }) => {
 
   const addTransaction = (transaction) =>
     setTransactions([...transactions, transaction]);
+
+  const deleteTransaction = (id) =>
+    setTransactions(transactions.filter((t) => t.id !== id));
+
+  const updateTransaction = (id, updatedData) =>
+    setTransactions(
+      transactions.map((t) => (t.id === id ? { ...t, ...updatedData } : t))
+    );
+
   const addCategory = (category) => setCategories([...categories, category]);
 
   return (
     <billContext.Provider
-      value={{ transactions, addTransaction, categories, addCategory }}
+      value={{
+        transactions,
+        addTransaction,
+        deleteTransaction,
+        updateTransaction,
+        categories,
+        addCategory,
+      }}
     >
       {children}
     </billContext.Provider>
