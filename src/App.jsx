@@ -11,9 +11,45 @@ import Tabels from "./components/Tables/Tables";
 import MiddleLayout from "./components/Layout/MiddleLayout";
 import BillsLayout from "./components/Bills/BillsLayout";
 import BillProvider from "./components/Bills/BillsContext";
+import Profile from "./components/Profile/Profile";
+import { Routes, Route } from "react-router-dom";
+
+function DashboardContent() {
+  const { logout } = useAuth();
+
+  return (
+    <Layout>
+      <MenuBar />
+      <MiddleLayout>
+        <Navbar onLogout={logout} />
+        <div className="grid grid-cols-2 gap-4">
+          <EnterBills />
+          <ShowBills />
+        </div>
+        <div className="col-span-2">
+          <Tabels />
+        </div>
+      </MiddleLayout>
+    </Layout>
+  );
+}
+
+function ProfilePage() {
+  const { logout } = useAuth();
+
+  return (
+    <Layout>
+      <MenuBar />
+      <MiddleLayout>
+        <Navbar onLogout={logout} />
+        <Profile />
+      </MiddleLayout>
+    </Layout>
+  );
+}
 
 function AppContent() {
-  const { isAuthenticated, loading, logout } = useAuth();
+  const { isAuthenticated, loading } = useAuth();
 
   if (loading) {
     return (
@@ -29,15 +65,10 @@ function AppContent() {
 
   return (
     <BillProvider>
-      <Layout>
-        <MenuBar />
-        <MiddleLayout>
-          <Navbar onLogout={logout} />
-          <EnterBills />
-          <ShowBills />
-          <Tabels />
-        </MiddleLayout>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<DashboardContent />} />
+        <Route path="/profile" element={<ProfilePage />} />
+      </Routes>
     </BillProvider>
   );
 }

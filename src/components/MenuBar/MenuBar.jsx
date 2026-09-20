@@ -32,7 +32,7 @@ const MenuBar = () => {
           ACCOUNT PAGES
         </label>
         <li className="mt-5">
-          <MenuItems icon={profileIcon} title={"Profile"} />
+          <MenuItems icon={profileIcon} title={"Profile"} to="/profile" />
         </li>
         {/* <li>
           <MenuItems icon={signInIcon} title={"Sign In"} />
