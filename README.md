@@ -157,7 +157,7 @@ TailwindCSS 4 با utility-first approach. کامپوننت‌ها از کلاس
 
 ## توسعه‌دهنده
 
-**فرویش کریمی** - تمرین React Context (HW-L03-03)
+**فرنوش کریمی - تمرین React Context (HW-L03-03)
 
 ## لایسنس
 
